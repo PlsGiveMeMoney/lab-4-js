@@ -1,0 +1,79 @@
+<html>
+<head>
+ <meta charset="utf-8">
+ <title>Лабораторная работа 4</title>
+ <script src="http://d3js.org/d3.v7.min.js"> </script>
+ <style>
+ svg {
+ border:1px solid grey; 
+ }
+#cx2, #cy2, #rotate2, #scaleX2, #scaleY2,
+#label_cx2, #label_cy2, #label_rotate2, #label_scaleX2, #label_scaleY2 {
+  display: none;
+}
+
+ </style>
+</head>
+<body>
+<form id="setting" >
+ <p id = "show" style="display:block;">Координаты рисунка<br>
+ <label for="cx">x: </label>
+ <input type="number" id="cx" value="300" max=600 min=0>
+  <label for="cx2" id="label_cx2">до: </label>
+ <input type="number" id="cx2" value="300" max=600 min=0><br>
+ <label for="cy">y: </label>
+ <input type="number" id="cy" value="300" max=600 min=0>
+  <label for="cy2" id="label_cy2">до: </label>
+ <input type="number" id="cy2" value="300" max=600 min=0>
+ </p>
+ <p id="pathOptions" style="display:none;">
+ Пути перемещения
+ <select name="pathOptions">
+  <option value="0">Буквой «Г»</option>
+  <option value="1">По кругу</option>
+</select>
+</p>
+ <p id="povorot" style="display:block;">Поворот<br>
+ <label for="rotate">угол </label>
+ <input type="number" id="rotate" value="0">
+  <label for="rotate2" id="label_rotate2">до </label>
+ <input type="number" id="rotate2" value="0"><br></p>
+<p id="scaleMain" style="display:block;">Масштаб<br>
+ <label for="scaleX">по X: </label>
+ <input type="number" id="scaleX" value="1" step="0.1" min="0.1">
+ <label for="scaleX2" id="label_scaleX2">до: </label>
+ <input type="number" id="scaleX2" value="1" step="0.1" min="0.1"><br>
+ <label for="scaleY">по Y: </label>
+ <input type="number" id="scaleY" value="1" step="0.1" min="0.1">
+  <label for="scaleY2" id="label_scaleY2">до: </label>
+ <input type="number" id="scaleY2" value="1" step="0.1" min="0.1">
+</p>
+<p>
+ <input type="checkbox" id="animateOn" name="animate">
+ <label for="animateOn">Включить анимацию?</label>
+
+
+<div id="animationSettings" style="display:none;">
+ <select id="animationType">
+   <option value="easeLinear">linear</option>
+   <option value="easeElastic">elastic</option>
+   <option value="easeBounce">bounce</option>
+ </select>
+ <br>
+ <input type="checkbox" id="pathMove" name="pathMove" style="display:none;">
+<label for="pathMove" id="label_pathMove" style="display:none;">Перемещение вдоль пути?</label>
+
+<!-- Select для выбора пути перемещения -->
+
+  <input type="button" id="animate" value="Анимировать">
+</div>
+
+</p>
+ <input type="button" id="draw" style="display:block;" value="Нарисовать">
+ 
+ <input type="button" id="clear" value="Очистить">
+ </form>
+ <svg></svg>
+</body>
+ <script src="program.js"></script>
+</html>
